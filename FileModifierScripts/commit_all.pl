@@ -1,5 +1,16 @@
 #!/usr/bin/perl
-
+###############################################################################
+# Copyright (c) 2000-2020 Ericsson Telecom AB
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v2.0
+# which accompanies this distribution, and is available at
+# https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+#
+# Contributors:
+#   Balasko, Jeno
+#   Lovassy, Arpad
+#
+###############################################################################
 #use utf8;
 #This script just commits and pushes all git repository 
 #Cd into the root directory and run
@@ -52,7 +63,7 @@ sub load
 			print "Git status result:\n$retval\n";
 			
 			#commit:
-			$retval = `git commit -sam "Copyright date changed for 2000-2019"`;
+			$retval = `git commit -sam "Copyright date changed for 2000-2020"`;
 			print "Git commit result:\n$retval\n";
 			
 			#push
