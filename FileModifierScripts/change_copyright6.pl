@@ -17,6 +17,8 @@
 # http://www.kichwa.com/quik_ref/spec_variables.html
 undef $/;
 
+$LastYear = "2020";
+$LastMonth = "May";
 $fileindex = 0;
 #total number of changed files
 $total = 0;
@@ -44,7 +46,7 @@ sub load
         {
         # $filename is a file
 
-        if($filename =~ /(README.*|adoc|ttcn3_help|titanver|Makefile.*|\.(properties|iml|g4|tpd|java|ttcn|cc|hh|xml|prj|py|xsd|sh|c|h|html|l|y|asn|1|xsl|fast_script|script|pl|cfg|txt|hhc|hhp|dot|ttcnpp|converter|ttcnin|ttcn3|dat|grp|prj|awk|ddf|pats|css|js|launch|rdf|lex|tpl)|Readme|ttcn3.*|compiler|make|license|script_not_running)$/)
+        if($filename =~ /(README.*|ttcn3_help|titanver|Makefile.*|\.(adoc|properties|iml|g4|tpd|java|ttcn|cc|hh|xml|prj|py|xsd|sh|c|h|html|l|y|asn|1|xsl|fast_script|script|pl|cfg|txt|hhc|hhp|dot|ttcnpp|converter|ttcnin|ttcn3|dat|grp|prj|awk|ddf|pats|css|js|launch|rdf|lex|tpl)|Readme|ttcn3.*|compiler|make|license|script_not_running|compiler\.1|ttcn3_logmerge\.1|ttcn3_logformat\.1|ttcn3_logfilter\.1|ttcn3_makefilegen\.1)$/)
             {
             #print("-> $filename\n");
             open(IN, $filename);
@@ -53,17 +55,21 @@ sub load
 
             # number of replacements
             $c = 0;
-			# $c += $whole_file =~ s/Copyright \(c\) 20[0-1][0-9][ \,\-]*20[0-1][0-8][ \,]*Ericsson AB/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;
-			$c += $whole_file =~ s/Copyright \(c\) 20[0-1][0-9][ \,\-]*20[0-1][0-9][ \,]*Ericsson Telecom AB/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;
-			# $c += $whole_file =~ s/Copyright \(c\)[ ]*20[0-1][0-9][ ]*Ericsson AB/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;			
-			#$c += $whole_file =~ s/Copyright Ericsson \(c\) Telecom AB 2000-201[0-9]/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;
-			# $c += $whole_file =~ s/Copyright Test Competence Center \(TCC\) ETH 20[0-1][0-9]/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;
-			# $c += $whole_file =~ s/Copyright 2012 Test Competence Center/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;
-            # $c += $whole_file =~ s/Copyright \(c\) 2000\-201[0-8]   Ericsson Telecom AB/Copyright \(c\) 2000\-2019 Ericsson Telecom AB/gs;
-            # $c += $whole_file =~ s/Copyright \(c\) 2000\-201[0-7] Ericsson Telecom AB/Copyright (c) 2000\-2019 Ericsson Telecom AB/gs;
-            $c += $whole_file =~ s/Copyright Ericsson Telecom AB 201[0-9]/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;
-			$c += $whole_file =~ s/Copyright Ericsson AB 201[0-9]/Copyright (c) 2000-2020 Ericsson Telecom AB/gs;
-            $c += $whole_file =~ s/Copyright Ericsson Telecom AB 2000\-2014/Copyright \(c\) 2000\-2020 Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright \(c\) 20[0-1][0-9][ \,\-]*20[0-1][0-8][ \,]*Ericsson AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            $c += $whole_file =~ s/Copyright \(c\) 20[0-1][0-9][ \,\-]*20[0-1][0-9][ \,]*Ericsson Telecom AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            $c += $whole_file =~ s/Copyright Ericsson Telecom AB 201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            $c += $whole_file =~ s/Copyright Ericsson AB 201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            $c += $whole_file =~ s/Copyright Ericsson Telecom AB 2000\-2014/Copyright \(c\) 2000\-${LastYear} Ericsson Telecom AB/gs;
+            $c += $whole_file =~ s/\.TH ([a-z0-9_]+) ([0-9]*) "[a-zA-Z 0-9]+" "Ericsson Telecom AB" "TTCN\-3 Tools"[ ]*/.TH $1 $2 "${LastMonth} ${LastYear}" "Ericsson Telecom AB" "TTCN-3 Tools"/gs;
+            
+            # Not necessary anymore:
+            # $c += $whole_file =~ s/Copyright \(c\)[ ]*20[0-1][0-9][ ]*Ericsson AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;         
+            #$c += $whole_file =~ s/Copyright Ericsson \(c\) Telecom AB 2000-201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright Test Competence Center \(TCC\) ETH 20[0-1][0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright 2012 Test Competence Center/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright \(c\) 2000\-201[0-8]   Ericsson Telecom AB/Copyright \(c\) 2000\-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright \(c\) 2000\-201[0-7] Ericsson Telecom AB/Copyright (c) 2000\-${LastYear} Ericsson Telecom AB/gs;
+
             if ( $c > 0 )
                 {
                 open(OUT, ">$filename");
