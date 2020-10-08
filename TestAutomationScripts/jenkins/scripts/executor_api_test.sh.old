@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+rm -rf $WORKSPACE/titan_executor_api
+
+git clone ssh://titanrt_local@gerritforge.lmera.ericsson.se:29418/titan_executor_api
+#ln -s ../../../Nightly_GIT_Titan_build/slaves/*/TTCNv3 TTCNv3
+
+cd $WORKSPACE/TTCNv3/Install/demo
+../bin/makefilegen -fg *.ttcn PCOType.hh PCOType.cc
+make clean
+make
+perl -i -p -e 's/(^[^\S\n]*private static Severity sLogLevel = Severity.)[A-Z]+;/\1TRACE;/g' $WORKSPACE/titan_executor_api/TITAN_Executor_API/src/com/ericsson/titan/executor/util/Log.java

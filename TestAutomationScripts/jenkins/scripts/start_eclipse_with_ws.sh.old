@@ -1,0 +1,6 @@
+#!/usr/bin/sh -xe
+# eclipse starter script
+WORKSPACE="/home/titanrt/jenkins/workspace/4.2_Install/slaves/titanrt_esekilxxen1843"
+ECLIPSE_DIR=${WORKSPACE}/eclipse-SDK-4.2-linux-gtk-x86_64
+AUT_WS=/home/titanrt/gui_test/workingdir_AUT
+${ECLIPSE_DIR}/eclipse -data "$AUT_WS"
