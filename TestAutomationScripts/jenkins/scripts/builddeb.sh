@@ -20,7 +20,7 @@ CONTROL_FILE="$FILENAME/DEBIAN/control"
 #ARCH=$(echo $FILENAME | awk -F- '{print $3}')
 #TRTHOME="/home/titanrt"
 #SSHKEY="$TRTHOME/.ssh/id_rsa_to_hub"
-#DESTDIR="/proj/TTCN/www/ttcn/root/download/packages"
+#DESTDIR="/proj/ttcn3titan/www/ttcn/root/download/packages"
 
 ## ---GET THE .TGZ---
 if [ ! -d $FILENAME ]; then

@@ -1,4 +1,6 @@
 #!/bin/sh -xe
+#obsolete
+
 #env
 #cd TTCNv3/usrguide
 #chmod a+x pdfgen.sh

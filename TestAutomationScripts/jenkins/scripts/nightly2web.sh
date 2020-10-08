@@ -5,7 +5,7 @@
 HOST=$(hostname -s)
 TRTHOME="/home/titanrt"
 SSHKEY="$TRTHOME/.ssh/id_rsa_to_hub"
-DESTDIR="/proj/TTCN/www/ttcn/root/download/packages/"
+DESTDIR="/proj/ttcn3titan/www/ttcn/root/download/packages/"
 MINSIZE=15000000
 
 ## ---CLEANUP---

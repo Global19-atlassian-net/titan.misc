@@ -1,7 +1,7 @@
 #!/bin/bash
 TMPROOTDIR="/home/titanrt/eclipse_automatic_build/tmp_update_sites"
 TMPSITEDIR="Testing_update_site"
-WWWROOTDIR="/proj/TTCN/www/ttcn/root/download"
+WWWROOTDIR="/proj/ttcn3titan/www/ttcn/root/download"
 WWWSITEDIR="testing_update_site"
 STAMP=`date +%F`
 
