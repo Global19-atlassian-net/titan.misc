@@ -17,7 +17,7 @@
 # http://www.kichwa.com/quik_ref/spec_variables.html
 undef $/;
 
-$LastYear = "2020";
+$LastYear = "2021";
 $LastMonth = "May";
 $fileindex = 0;
 #total number of changed files
