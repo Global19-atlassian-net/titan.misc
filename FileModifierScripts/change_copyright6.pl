@@ -12,7 +12,7 @@
 #
 ###############################################################################
 #use utf8;
-#This script just changes the year of the new copyright headers
+# This script just changes the year of the new copyright headers
 # to read the whole file at once, not just line-by-line
 # http://www.kichwa.com/quik_ref/spec_variables.html
 undef $/;
@@ -55,16 +55,17 @@ sub load
 
             # number of replacements
             $c = 0;
+			$c += $whole_file =~ s/Copyright \(c\) 2000-2020 Ericsson Telecom AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
             # $c += $whole_file =~ s/Copyright \(c\) 20[0-1][0-9][ \,\-]*20[0-1][0-8][ \,]*Ericsson AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
-            $c += $whole_file =~ s/Copyright \(c\) 20[0-1][0-9][ \,\-]*20[0-1][0-9][ \,]*Ericsson Telecom AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
-            $c += $whole_file =~ s/Copyright Ericsson Telecom AB 201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
-            $c += $whole_file =~ s/Copyright Ericsson AB 201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
-            $c += $whole_file =~ s/Copyright Ericsson Telecom AB 2000\-2014/Copyright \(c\) 2000\-${LastYear} Ericsson Telecom AB/gs;
-            $c += $whole_file =~ s/\.TH ([a-z0-9_]+) ([0-9]*) "[a-zA-Z 0-9]+" "Ericsson Telecom AB" "TTCN\-3 Tools"[ ]*/.TH $1 $2 "${LastMonth} ${LastYear}" "Ericsson Telecom AB" "TTCN-3 Tools"/gs;
+            # $c += $whole_file =~ s/Copyright \(c\) 20[0-1][0-9][ \,\-]*20[0-1][0-9][ \,]*Ericsson Telecom AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright Ericsson Telecom AB 201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright Ericsson AB 201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright Ericsson Telecom AB 2000\-2014/Copyright \(c\) 2000\-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/\.TH ([a-z0-9_]+) ([0-9]*) "[a-zA-Z 0-9]+" "Ericsson Telecom AB" "TTCN\-3 Tools"[ ]*/.TH $1 $2 "${LastMonth} ${LastYear}" "Ericsson Telecom AB" "TTCN-3 Tools"/gs;
             
             # Not necessary anymore:
             # $c += $whole_file =~ s/Copyright \(c\)[ ]*20[0-1][0-9][ ]*Ericsson AB/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;         
-            #$c += $whole_file =~ s/Copyright Ericsson \(c\) Telecom AB 2000-201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
+            # $c += $whole_file =~ s/Copyright Ericsson \(c\) Telecom AB 2000-201[0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
             # $c += $whole_file =~ s/Copyright Test Competence Center \(TCC\) ETH 20[0-1][0-9]/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
             # $c += $whole_file =~ s/Copyright 2012 Test Competence Center/Copyright (c) 2000-${LastYear} Ericsson Telecom AB/gs;
             # $c += $whole_file =~ s/Copyright \(c\) 2000\-201[0-8]   Ericsson Telecom AB/Copyright \(c\) 2000\-${LastYear} Ericsson Telecom AB/gs;
