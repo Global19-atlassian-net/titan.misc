@@ -2,7 +2,7 @@
 # of the TTCN-3 Test Executor version CRL 113 200/2 R2A
 # for ethlel (ethlel@GlobalWarning2) on Wed Dec 19 11:27:06 2012
 
-# Copyright 2000-2012 Test Competence Center, Ericsson R & D, Hungary
+# Copyright (c) 2000-2021 Ericsson Telecom AB
 # For trouble reporting use the tool MHWeb.
 # For TR writers guide please visit the web page: http://ttcn.ericsson.se
 

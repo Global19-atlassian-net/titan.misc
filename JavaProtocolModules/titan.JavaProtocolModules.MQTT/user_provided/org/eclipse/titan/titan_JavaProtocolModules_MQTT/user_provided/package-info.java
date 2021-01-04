@@ -2,7 +2,7 @@
 // of the TTCN-3 Test Executor version CRL 113 200/6 R5C
 // for (elnrnag@elx78355y6x)
 
-// Copyright (c) 2000-2019 Ericsson Telecom AB
+// Copyright (c) 2000-2021 Ericsson Telecom AB
 
 /**
  * <code>org.eclipse.titan.titan_JavaProtocolModules_MQTT.user_provided</code> package contains classes

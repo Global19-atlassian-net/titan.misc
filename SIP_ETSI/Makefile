@@ -2,7 +2,7 @@
 # of the TTCN-3 Test Executor version CRL 113 200/5 R4C
 # for Global Warning (james00@GlobalWarning1) on Fri Feb 19 19:07:18 2016
 
-# Copyright (c) 2000-2018 Ericsson Telecom AB
+# Copyright (c) 2000-2021 Ericsson Telecom AB
 
 # The following make commands are available:
 # - make, make all      Builds the executable test suite.

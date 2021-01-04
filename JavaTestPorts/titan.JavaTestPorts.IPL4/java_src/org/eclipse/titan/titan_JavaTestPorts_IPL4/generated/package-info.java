@@ -2,7 +2,7 @@
 // of the TTCN-3 Test Executor version CRL 113 200/6 R5B
 // for (elnrnag@elx78355y6x)
 
-// Copyright (c) 2000-2018 Ericsson Telecom AB
+// Copyright (c) 2000-2021 Ericsson Telecom AB
 
 /**
  * <code>org.eclipse.titan.titan_JavaTestPorts_IPL4.generated</code> package contains classes
